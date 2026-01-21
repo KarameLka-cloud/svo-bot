@@ -13,18 +13,20 @@ datasource db {
   provider = "mysql"
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+model menu {
+  id Int @id @default(autoincrement())
+  title String
+  options String @unique
+}
+model faq {
+  id Int @id @default(autoincrement())
+  question String
+  answer String
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String? @db.Text
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+model feedback {
+  id Int @id @default(autoincrement())
+  type String
+  title String
+  message String
 }
