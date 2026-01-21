@@ -3,7 +3,7 @@ import { getMain } from "../../prisma/modules/main/main.service.ts";
 
 type KeyboardType = ReturnType<typeof Keyboard.inlineKeyboard>;
 
-async function getMainButtons(): Promise<KeyboardType> {
+export async function mainKeyboard(): Promise<KeyboardType> {
   const mainButtons = await getMain();
 
   const buttons = mainButtons.map((button) => [
@@ -18,5 +18,3 @@ async function getMainButtons(): Promise<KeyboardType> {
 
   return Keyboard.inlineKeyboard(buttons);
 }
-
-export default getMainButtons;
