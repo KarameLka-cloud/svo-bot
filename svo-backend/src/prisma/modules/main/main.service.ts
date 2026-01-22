@@ -7,3 +7,11 @@ export const getMain = () => {
     },
   });
 };
+
+export const getMainById = (id: number) => {
+  return mainClient.findUnique({
+    where: {
+      id,
+    },
+  });
+};

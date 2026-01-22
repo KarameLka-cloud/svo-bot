@@ -1,15 +1,15 @@
 import { Keyboard } from "@maxhub/max-bot-api";
-import { getFaq } from "../../prisma/modules/faq/faq.service.ts";
+import { getFund } from "../../prisma/modules/fund/fund.service.ts";
 import { returnButton } from "../buttons/returnButton.ts";
 
 type KeyboardType = ReturnType<typeof Keyboard.inlineKeyboard>;
 
-export async function faqKeyboard(): Promise<KeyboardType> {
-  const faqButtons = await getFaq();
+export async function fundKeyboard(): Promise<KeyboardType> {
+  const fundButtons = await getFund();
   const rButton = returnButton(Keyboard);
 
-  const buttons = faqButtons.map((button) => [
-    Keyboard.button.callback(button.name_button, `faqButtonId:${button.id}`, {
+  const buttons = fundButtons.map((button) => [
+    Keyboard.button.callback(button.name_button, `fundButtonId:${button.id}`, {
       intent: "default",
     }),
   ]);

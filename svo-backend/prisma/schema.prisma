@@ -15,18 +15,26 @@ datasource db {
 
 model menu {
   id Int @id @default(autoincrement())
-  title String
-  options String @unique
+  name_button String
+  message String? @db.LongText
 }
+
 model faq {
   id Int @id @default(autoincrement())
-  question String
-  answer String
+  name_button String
+  question String @db.LongText
+  answer String @db.LongText
+}
+
+model fund {
+  id Int @id @default(autoincrement())
+  name_button String
+  message String? @db.LongText
 }
 
 model feedback {
   id Int @id @default(autoincrement())
+  name_button String
   type String
-  title String
-  message String
+  message String? @db.LongText
 }

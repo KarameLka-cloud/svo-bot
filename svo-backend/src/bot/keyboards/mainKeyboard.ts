@@ -7,13 +7,9 @@ export async function mainKeyboard(): Promise<KeyboardType> {
   const mainButtons = await getMain();
 
   const buttons = mainButtons.map((button) => [
-    Keyboard.button.callback(
-      button.title,
-      `buttonId:${button.id}:${button.title}`,
-      {
-        intent: "default",
-      },
-    ),
+    Keyboard.button.callback(button.name_button, `mainButtonId:${button.id}`, {
+      intent: "default",
+    }),
   ]);
 
   return Keyboard.inlineKeyboard(buttons);
