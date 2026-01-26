@@ -1,3 +1,3 @@
 export function registerCommands(bot: any) {
-  bot.api.setMyCommands([{ name: "start", description: "Добро пожаловать!" }]);
+  bot.api.setMyCommands([{ name: "start", description: "Начать беседу с «чистого листа»!" }]);
 }

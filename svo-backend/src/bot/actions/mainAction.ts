@@ -67,7 +67,7 @@ export async function mainAction(bot: any) {
       case 6: {
         await ctx.answerOnCallback({
           message: {
-            text: `${mainItem?.message}`,
+            text: `${mainItem?.message ?? mainItem?.name_button}`,
             format: "html",
             attachments: [feedbackButtons],
           },

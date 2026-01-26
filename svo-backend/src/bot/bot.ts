@@ -4,8 +4,8 @@ import { registerCommands } from "./config/commands.ts";
 import { botStartedAction } from "./actions/botStartedAction.ts";
 import { startAction } from "./actions/startAction.ts";
 import { mainAction } from "./actions/mainAction.ts";
-import { fundAction } from "./actions/fundAction.ts";
 import { faqAction } from "./actions/faqAction.ts";
+import { fundAction } from "./actions/fundAction.ts";
 import { returnMainAction } from "./actions/returnMainAction.ts";
 
 // Инициализация токена и проверка на наличие в .env
