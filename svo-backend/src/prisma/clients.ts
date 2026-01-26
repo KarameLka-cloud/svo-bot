@@ -1,8 +1,9 @@
 import { prisma } from "../../lib/prisma.ts";
 
+const screensClient = prisma.screens;
 const mainClient = prisma.menu;
 const faqClient = prisma.faq;
 const fundClient = prisma.fund;
-const feedback = prisma.feedback;
+const feedbackClient = prisma.feedback;
 
-export { mainClient, faqClient, fundClient, feedback };
+export { screensClient, mainClient, faqClient, fundClient, feedbackClient };

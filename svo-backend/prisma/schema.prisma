@@ -16,7 +16,7 @@ datasource db {
 model screens {
   id      Int     @id @default(autoincrement())
   code    String  @unique
-  message String? @db.LongText
+  message String @db.LongText
 }
 
 model menu {
