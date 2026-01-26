@@ -1,9 +1,17 @@
-import { feedback } from "../../clients.ts";
+import { feedbackClient } from "../../clients.ts";
 
 export const getFeedback = () => {
-  return feedback.findMany({
+  return feedbackClient.findMany({
     orderBy: {
       id: "asc",
+    },
+  });
+};
+
+export const getFeedbackById = (id: number) => {
+  return feedbackClient.findUnique({
+    where: {
+      id,
     },
   });
 };

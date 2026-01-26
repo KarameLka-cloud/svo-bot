@@ -14,44 +14,64 @@ datasource db {
 }
 
 model screens {
-  id      Int     @id @default(autoincrement())
-  code    String  @unique
+  id      Int    @id @default(autoincrement())
+  code    String @unique
   message String @db.LongText
 }
 
 model menu {
   id          Int     @id @default(autoincrement())
+  type        String
   name_button String
   message     String? @db.LongText
+  url         String? @db.LongText
 }
 
 model want {
   id          Int     @id @default(autoincrement())
+  type        String
   name_button String
   message     String? @db.LongText
+  url         String? @db.LongText
 }
 
 model help {
   id          Int     @id @default(autoincrement())
+  type        String
   name_button String
   message     String? @db.LongText
+  url         String? @db.LongText
+}
+
+model employment {
+  id          Int     @id @default(autoincrement())
+  type        String
+  name_button String
+  message     String? @db.LongText
+  url         String? @db.LongText
 }
 
 model faq {
-  id          Int    @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
+  type        String
   name_button String
-  question    String @db.LongText
-  answer      String @db.LongText
+  question    String  @db.LongText
+  answer      String  @db.LongText
+  url         String? @db.LongText
 }
 
 model fund {
   id          Int     @id @default(autoincrement())
+  type        String
   name_button String
   message     String? @db.LongText
+  url         String? @db.LongText
 }
 
 model feedback {
   id          Int     @id @default(autoincrement())
+  type        String
   name_button String
   message     String? @db.LongText
+  url         String? @db.LongText
 }

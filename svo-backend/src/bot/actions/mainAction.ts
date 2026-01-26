@@ -2,7 +2,7 @@ import { faqKeyboard } from "../keyboards/faqKeyboard.ts";
 import { fundKeyboard } from "../keyboards/fundKeyboard.ts";
 import { feedbackKeyboard } from "../keyboards/feedbackKeyboard.ts";
 import { returnKeyboard } from "../keyboards/returnKeyboard.ts";
-import { getMainById } from "../../prisma/modules/main/main.service.ts";
+import { getMainById } from "../../prisma/modules/menu/menu.service.ts";
 
 export async function mainAction(bot: any) {
   bot.action(/mainButtonId:(.+)/, async (ctx: any) => {

@@ -1,5 +1,5 @@
-import { welcomeAction } from "./welcomeAction.ts";
+import { sendWelcome } from "../services/sendWelcome.ts";
 
 export async function startAction(bot: any) {
-  return bot.command("start", welcomeAction);
+  return bot.command("start", sendWelcome);
 }
