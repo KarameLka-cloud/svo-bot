@@ -13,7 +13,25 @@ datasource db {
   provider = "mysql"
 }
 
+model screens {
+  id      Int     @id @default(autoincrement())
+  code    String  @unique
+  message String? @db.LongText
+}
+
 model menu {
+  id          Int     @id @default(autoincrement())
+  name_button String
+  message     String? @db.LongText
+}
+
+model want {
+  id          Int     @id @default(autoincrement())
+  name_button String
+  message     String? @db.LongText
+}
+
+model help {
   id          Int     @id @default(autoincrement())
   name_button String
   message     String? @db.LongText
@@ -35,6 +53,5 @@ model fund {
 model feedback {
   id          Int     @id @default(autoincrement())
   name_button String
-  type        String
   message     String? @db.LongText
 }
