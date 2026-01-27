@@ -10,7 +10,7 @@ import { getMenuById } from "../../prisma/modules/menu/menu.service.ts";
 export async function menuAction(bot: any) {
   bot.action(/menuButtonId:(.+)/, async (ctx: any) => {
     const id = Number(ctx.match[1]);
-    const menuItem = await getMenuById(id);
+    const item = await getMenuById(id);
 
     const wantButtons = await wantKeyboard();
     const helpButtons = await helpKeyboard();
@@ -23,7 +23,7 @@ export async function menuAction(bot: any) {
       case 1: {
         await ctx.answerOnCallback({
           message: {
-            text: `${menuItem?.message ?? menuItem?.name_button}`,
+            text: `${item?.message ?? item?.name_button}`,
             format: "html",
             attachments: [wantButtons],
           },
@@ -33,7 +33,7 @@ export async function menuAction(bot: any) {
       case 2: {
         await ctx.answerOnCallback({
           message: {
-            text: `${menuItem?.message ?? menuItem?.name_button}`,
+            text: `${item?.message ?? item?.name_button}`,
             format: "html",
             attachments: [helpButtons],
           },
@@ -43,7 +43,7 @@ export async function menuAction(bot: any) {
       case 3: {
         await ctx.answerOnCallback({
           message: {
-            text: `${menuItem?.message ?? menuItem?.name_button}`,
+            text: `${item?.message ?? item?.name_button}`,
             format: "html",
             attachments: [employmentButtons],
           },
@@ -53,7 +53,7 @@ export async function menuAction(bot: any) {
       case 4: {
         await ctx.answerOnCallback({
           message: {
-            text: `${menuItem?.message ?? menuItem?.name_button}`,
+            text: `${item?.message ?? item?.name_button}`,
             format: "html",
             attachments: [faqButtons],
           },
@@ -63,7 +63,7 @@ export async function menuAction(bot: any) {
       case 5: {
         await ctx.answerOnCallback({
           message: {
-            text: `${menuItem?.message ?? menuItem?.name_button}`,
+            text: `${item?.message ?? item?.name_button}`,
             format: "html",
             attachments: [fundButtons],
           },
@@ -73,7 +73,7 @@ export async function menuAction(bot: any) {
       case 6: {
         await ctx.answerOnCallback({
           message: {
-            text: `${menuItem?.message ?? menuItem?.name_button}`,
+            text: `${item?.message ?? item?.name_button}`,
             format: "html",
             attachments: [feedbackButtons],
           },
@@ -83,7 +83,7 @@ export async function menuAction(bot: any) {
       default: {
         await ctx.answerOnCallback({
           message: {
-            text: `${menuItem?.message ?? menuItem?.name_button}`,
+            text: `${item?.message ?? item?.name_button}`,
             format: "html",
             attachments: [returnKeyboard],
           },

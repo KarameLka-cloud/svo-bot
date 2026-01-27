@@ -22,10 +22,10 @@ export async function getListKeyboard(
     showReturnButton = true,
   } = options;
 
-  const rButton = showReturnButton ? returnButton(Keyboard) : null;
   const bButton = showBackButton
     ? backButton(Keyboard, backButtonAction)
     : null;
+  const rButton = showReturnButton ? returnButton(Keyboard) : null;
 
   const buttons = array
     .map((item: any) => {
