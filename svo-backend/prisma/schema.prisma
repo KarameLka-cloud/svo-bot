@@ -28,19 +28,41 @@ model menu {
 }
 
 model want {
+  id            Int              @id @default(autoincrement())
+  type          String
+  name_button   String
+  message       String?          @db.LongText
+  url           String?          @db.LongText
+  wantRelations want_relations[]
+}
+
+model want_relations {
   id          Int     @id @default(autoincrement())
   type        String
   name_button String
   message     String? @db.LongText
   url         String? @db.LongText
+  want        want    @relation(fields: [want_id], references: [id])
+  want_id     Int
 }
 
 model help {
+  id            Int              @id @default(autoincrement())
+  type          String
+  name_button   String
+  message       String?          @db.LongText
+  url           String?          @db.LongText
+  helpRelations help_relations[]
+}
+
+model help_relations {
   id          Int     @id @default(autoincrement())
   type        String
   name_button String
   message     String? @db.LongText
   url         String? @db.LongText
+  help        help    @relation(fields: [help_id], references: [id])
+  help_id     Int
 }
 
 model employment {
