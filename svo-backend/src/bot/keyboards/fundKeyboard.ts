@@ -5,11 +5,10 @@ import { getListKeyboard } from "../services/getListKeyboard.ts";
 type KeyboardType = ReturnType<typeof Keyboard.inlineKeyboard>;
 
 export async function fundKeyboard(): Promise<KeyboardType> {
-  const fundButtons = await getFund();
+  const buttons = await getFund();
 
-  const keyboard = await getListKeyboard(fundButtons, {
+  const keyboard = await getListKeyboard(buttons, {
     buttonAction: "fundButtonId",
-    showReturnButton: true,
   });
   return keyboard;
 }

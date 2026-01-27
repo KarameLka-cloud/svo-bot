@@ -3,7 +3,7 @@ import { Bot } from "@maxhub/max-bot-api";
 import { registerCommands } from "./config/commands.ts";
 import { botStartedAction } from "./actions/botStartedAction.ts";
 import { startAction } from "./actions/startAction.ts";
-import { mainAction } from "./actions/mainAction.ts";
+import { menuAction } from "./actions/menuAction.ts";
 import { faqAction } from "./actions/faqAction.ts";
 import { fundAction } from "./actions/fundAction.ts";
 import { returnMainAction } from "./actions/returnMainAction.ts";
@@ -22,7 +22,7 @@ registerCommands(bot);
 // Инициализация actions
 botStartedAction(bot);
 startAction(bot);
-mainAction(bot);
+menuAction(bot);
 faqAction(bot);
 fundAction(bot);
 returnMainAction(bot);

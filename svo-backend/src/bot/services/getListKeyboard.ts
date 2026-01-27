@@ -19,7 +19,7 @@ export async function getListKeyboard(
     buttonAction = "",
     backButtonAction = "",
     showBackButton = false,
-    showReturnButton = false,
+    showReturnButton = true,
   } = options;
 
   const rButton = showReturnButton ? returnButton(Keyboard) : null;

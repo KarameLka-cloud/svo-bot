@@ -1,14 +1,15 @@
 import { Keyboard } from "@maxhub/max-bot-api";
-import { getWant } from "../../prisma/modules/want/want.service.ts";
+import { getMenu } from "../../prisma/modules/menu/menu.service.ts";
 import { getListKeyboard } from "../services/getListKeyboard.ts";
 
 type KeyboardType = ReturnType<typeof Keyboard.inlineKeyboard>;
 
-export async function wantKeyboard(): Promise<KeyboardType> {
-  const buttons = await getWant();
+export async function menuKeyboard(): Promise<KeyboardType> {
+  const buttons = await getMenu();
 
   const keyboard = await getListKeyboard(buttons, {
-    buttonAction: "wantButtonId",
+    buttonAction: "menuButtonId",
+    showReturnButton: false,
   });
   return keyboard;
 }

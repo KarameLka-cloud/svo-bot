@@ -1,14 +1,20 @@
+import { returnKeyboard } from "../keyboards/returnKeyboard.ts";
+import { wantKeyboard } from "../keyboards/wantKeyboard.ts";
+import { helpKeyboard } from "../keyboards/helpKeyboard.ts";
+import { employmentKeyboard } from "../keyboards/employmentKeyboard.ts";
 import { faqKeyboard } from "../keyboards/faqKeyboard.ts";
 import { fundKeyboard } from "../keyboards/fundKeyboard.ts";
 import { feedbackKeyboard } from "../keyboards/feedbackKeyboard.ts";
-import { returnKeyboard } from "../keyboards/returnKeyboard.ts";
-import { getMainById } from "../../prisma/modules/menu/menu.service.ts";
+import { getMenuById } from "../../prisma/modules/menu/menu.service.ts";
 
-export async function mainAction(bot: any) {
-  bot.action(/mainButtonId:(.+)/, async (ctx: any) => {
+export async function menuAction(bot: any) {
+  bot.action(/menuButtonId:(.+)/, async (ctx: any) => {
     const id = Number(ctx.match[1]);
-    const mainItem = await getMainById(id);
+    const menuItem = await getMenuById(id);
 
+    const wantButtons = await wantKeyboard();
+    const helpButtons = await helpKeyboard();
+    const employmentButtons = await employmentKeyboard();
     const faqButtons = await faqKeyboard();
     const fundButtons = await fundKeyboard();
     const feedbackButtons = await feedbackKeyboard();
@@ -17,9 +23,9 @@ export async function mainAction(bot: any) {
       case 1: {
         await ctx.answerOnCallback({
           message: {
-            text: `${mainItem?.message}`,
+            text: `${menuItem?.message ?? menuItem?.name_button}`,
             format: "html",
-            attachments: [returnKeyboard],
+            attachments: [wantButtons],
           },
         });
         break;
@@ -27,9 +33,9 @@ export async function mainAction(bot: any) {
       case 2: {
         await ctx.answerOnCallback({
           message: {
-            text: `${mainItem?.message}`,
+            text: `${menuItem?.message ?? menuItem?.name_button}`,
             format: "html",
-            attachments: [returnKeyboard],
+            attachments: [helpButtons],
           },
         });
         break;
@@ -37,9 +43,9 @@ export async function mainAction(bot: any) {
       case 3: {
         await ctx.answerOnCallback({
           message: {
-            text: `${mainItem?.message}`,
+            text: `${menuItem?.message ?? menuItem?.name_button}`,
             format: "html",
-            attachments: [returnKeyboard],
+            attachments: [employmentButtons],
           },
         });
         break;
@@ -47,7 +53,7 @@ export async function mainAction(bot: any) {
       case 4: {
         await ctx.answerOnCallback({
           message: {
-            text: `${mainItem?.message}`,
+            text: `${menuItem?.message ?? menuItem?.name_button}`,
             format: "html",
             attachments: [faqButtons],
           },
@@ -57,7 +63,7 @@ export async function mainAction(bot: any) {
       case 5: {
         await ctx.answerOnCallback({
           message: {
-            text: `${mainItem?.message}`,
+            text: `${menuItem?.message ?? menuItem?.name_button}`,
             format: "html",
             attachments: [fundButtons],
           },
@@ -67,9 +73,19 @@ export async function mainAction(bot: any) {
       case 6: {
         await ctx.answerOnCallback({
           message: {
-            text: `${mainItem?.message ?? mainItem?.name_button}`,
+            text: `${menuItem?.message ?? menuItem?.name_button}`,
             format: "html",
             attachments: [feedbackButtons],
+          },
+        });
+        break;
+      }
+      default: {
+        await ctx.answerOnCallback({
+          message: {
+            text: `${menuItem?.message ?? menuItem?.name_button}`,
+            format: "html",
+            attachments: [returnKeyboard],
           },
         });
         break;

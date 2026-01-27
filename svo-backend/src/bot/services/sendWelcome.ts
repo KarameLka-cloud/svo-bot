@@ -1,9 +1,9 @@
 import { getUserName } from "../services/getUserName.ts";
-import { mainKeyboard } from "../keyboards/mainKeyboard.ts";
+import { menuKeyboard } from "../keyboards/menuKeyboard.ts";
 
 export async function sendWelcome(ctx: any) {
   const userName = await getUserName(ctx);
-  const mainButtons = await mainKeyboard();
+  const menuButtons = await menuKeyboard();
   console.log(ctx.user);
 
   await ctx.reply(
@@ -27,6 +27,6 @@ export async function sendWelcome(ctx: any) {
 
   await ctx.reply("🗃️ Выберите интересующий раздел:", {
     format: "html",
-    attachments: [mainButtons],
+    attachments: [menuButtons],
   });
 }

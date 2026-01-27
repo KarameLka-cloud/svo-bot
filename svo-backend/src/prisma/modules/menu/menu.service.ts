@@ -1,6 +1,6 @@
 import { menuClient } from "../../clients.ts";
 
-export const getMain = () => {
+export const getMenu = () => {
   return menuClient.findMany({
     orderBy: {
       id: "asc",
@@ -8,7 +8,7 @@ export const getMain = () => {
   });
 };
 
-export const getMainById = (id: number) => {
+export const getMenuById = (id: number) => {
   return menuClient.findUnique({
     where: {
       id,
