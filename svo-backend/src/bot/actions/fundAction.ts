@@ -5,7 +5,6 @@ export async function fundAction(bot: any) {
   bot.action(/fundButtonId:(.+)/, async (ctx: any) => {
     const id = Number(ctx.match[1]);
     const item = await getFundById(id);
-
     const keyboard = await getListKeyboard([], {
       backButtonAction: "menuButtonId:5",
       showBackButton: true,

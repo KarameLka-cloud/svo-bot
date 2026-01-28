@@ -5,7 +5,6 @@ export async function feedbackAction(bot: any) {
   bot.action(/feedbackButtonId:(.+)/, async (ctx: any) => {
     const id = Number(ctx.match[1]);
     const item = await getFeedbackById(id);
-
     const keyboard = await getListKeyboard([], {
       backButtonAction: "menuButtonId:6",
       showBackButton: true,
