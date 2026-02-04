@@ -1,4 +1,4 @@
-import { prisma } from "../../lib/prisma.ts";
+import { prisma } from "../../prisma/lib/prisma.ts";
 
 const screensClient = prisma.screens;
 const menuClient = prisma.menu;

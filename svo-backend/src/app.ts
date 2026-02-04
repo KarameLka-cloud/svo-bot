@@ -1,11 +1,23 @@
 import express from "express";
 
-const app = express();
+class App {
+  app: express.Application;
 
-app.use(express.json());
+  constructor() {
+    this.app = express();
+    this.middleware();
+    this.routes();
+  }
 
-app.get("/", (_, res) => {
-  res.send("Hello");
-});
+  middleware() {
+    this.app.use(express.json());
+  }
 
-export default app;
+  routes() {
+    this.app.use("/", (_, res) => {
+      res.send("Hello, world!");
+    });
+  }
+}
+
+export default new App().app;
