@@ -1,5 +1,5 @@
 import { getUserName } from "../services/getUserName.ts";
-import { menuKeyboard } from "../keyboards/menuKeyboard.ts";
+import { menuKeyboard } from "../keyboards/menu.keyboard.ts";
 
 export async function sendWelcome(ctx: any) {
   const userName = await getUserName(ctx);

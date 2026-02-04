@@ -1,6 +1,6 @@
 import { Keyboard } from "@maxhub/max-bot-api";
-import { returnButton } from "../buttons/returnButton.ts";
-import { backButton } from "../buttons/backButton.ts";
+import { returnButton } from "../buttons/return.button.ts";
+import { backButton } from "../buttons/back.button.ts";
 
 type KeyboardType = ReturnType<typeof Keyboard.inlineKeyboard>;
 

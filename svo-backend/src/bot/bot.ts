@@ -1,16 +1,16 @@
 import "dotenv/config";
 import { Bot } from "@maxhub/max-bot-api";
 import { registerCommands } from "./config/commands.ts";
-import { botStartedAction } from "./actions/botStartedAction.ts";
-import { startAction } from "./actions/startAction.ts";
-import { menuAction } from "./actions/menuAction.ts";
-import { wantAction, wantRelationAction } from "./actions/wantAction.ts";
-import { helpAction, helpRelationAction } from "./actions/helpAction.ts";
-import { employmentAction } from "./actions/employmentAction.ts";
-import { faqAction } from "./actions/faqAction.ts";
-import { fundAction } from "./actions/fundAction.ts";
-import { feedbackAction } from "./actions/feedbackAction.ts";
-import { returnMainAction } from "./actions/returnMainAction.ts";
+import { botStartedAction } from "./actions/botStarted.action.ts";
+import { startAction } from "./actions/start.action.ts";
+import { menuAction } from "./actions/menu.action.ts";
+import { wantAction, wantRelationAction } from "./actions/want.action.ts";
+import { helpAction, helpRelationAction } from "./actions/help.action.ts";
+import { employmentAction } from "./actions/employment.action.ts";
+import { faqAction } from "./actions/faq.action.ts";
+import { fundAction } from "./actions/fund.action.ts";
+import { feedbackAction } from "./actions/feedback.action.ts";
+import { returnMainAction } from "./actions/returnMain.action.ts";
 
 // Инициализация токена и проверка на наличие в .env
 const token = process.env.BOT_TOKEN;
