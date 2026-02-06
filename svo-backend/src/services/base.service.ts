@@ -1,9 +1,3 @@
-// interface IBaseService {
-//   client: any;
-//   findAll(): any;
-//   findById(id: number): any;
-// }
-
 export class BaseService {
   client: any;
 

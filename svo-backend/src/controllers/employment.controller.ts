@@ -1,17 +1,8 @@
+import { BaseController } from "./base.controller.ts";
 import { EmploymentService } from "../services/employment.service.ts";
 
-export class EmploymentController {
-  service: any;
-
+export class EmploymentController extends BaseController {
   constructor() {
-    this.service = new EmploymentService();
-  }
-
-  getAll() {
-    return this.service.findAll();
-  }
-
-  getById(id: number) {
-    return this.service.findById(id);
+    super(new EmploymentService());
   }
 }

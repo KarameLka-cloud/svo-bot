@@ -1,34 +1,18 @@
+import { BaseController } from "./base.controller.ts";
 import { WantService, WantRelationsService } from "../services/want.service.ts";
 
-export class WantController {
-  service: any;
-
+export class WantController extends BaseController {
   constructor() {
-    this.service = new WantService();
-  }
-
-  getAll() {
-    return this.service.findAll();
-  }
-
-  getById(id: number) {
-    return this.service.findById(id);
+    super(new WantService());
   }
 }
 
-export class WantRelationsController {
+export class WantRelationsController extends BaseController {
   service: any;
 
   constructor() {
+    super(new WantRelationsService());
     this.service = new WantRelationsService();
-  }
-
-  getAll() {
-    return this.service.findAll();
-  }
-
-  getById(id: number) {
-    return this.service.findById(id);
   }
 
   getWantRelationByWantId(id: number) {

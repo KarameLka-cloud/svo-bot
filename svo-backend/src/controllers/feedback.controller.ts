@@ -1,17 +1,8 @@
+import { BaseController } from "./base.controller.ts";
 import { FeedbackService } from "../services/feedback.service.ts";
 
-export class FeedbackController {
-  service: any;
-
+export class FeedbackController extends BaseController {
   constructor() {
-    this.service = new FeedbackService();
-  }
-
-  getAll() {
-    return this.service.findAll();
-  }
-
-  getById(id: number) {
-    return this.service.findById(id);
+    super(new FeedbackService());
   }
 }

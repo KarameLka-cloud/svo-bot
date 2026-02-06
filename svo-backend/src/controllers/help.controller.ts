@@ -1,34 +1,18 @@
+import { BaseController } from "./base.controller.ts";
 import { HelpService, HelpRelationsService } from "../services/help.service.ts";
 
-export class HelpController {
-  service: any;
-
+export class HelpController extends BaseController {
   constructor() {
-    this.service = new HelpService();
-  }
-
-  getAll() {
-    return this.service.findAll();
-  }
-
-  getById(id: number) {
-    return this.service.findById(id);
+    super(new HelpService());
   }
 }
 
-export class HelpRelationsController {
+export class HelpRelationsController extends BaseController {
   service: any;
 
   constructor() {
+    super(new HelpRelationsService());
     this.service = new HelpRelationsService();
-  }
-
-  getAll() {
-    return this.service.findAll();
-  }
-
-  getById(id: number) {
-    return this.service.findById(id);
   }
 
   getWantRelationByWantId(id: number) {

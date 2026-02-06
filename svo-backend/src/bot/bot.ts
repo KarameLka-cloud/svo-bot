@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { Bot } from "@maxhub/max-bot-api";
 import { registerCommands } from "./config/commands.ts";
-import { botStartedAction } from "./actions/botStarted.action.ts";
+import { startedAction } from "./actions/started.action.ts";
 import { startAction } from "./actions/start.action.ts";
 import { menuAction } from "./actions/menu.action.ts";
 import { wantAction, wantRelationAction } from "./actions/want.action.ts";
@@ -24,7 +24,7 @@ const bot: Bot = new Bot(token);
 registerCommands(bot);
 
 // Инициализация actions
-botStartedAction(bot);
+startedAction(bot);
 startAction(bot);
 menuAction(bot);
 wantAction(bot);

@@ -1,17 +1,8 @@
+import { BaseController } from "./base.controller.ts";
 import { MenuService } from "../services/menu.service.ts";
 
-export class MenuController {
-  service: any;
-
+export class MenuController extends BaseController {
   constructor() {
-    this.service = new MenuService();
-  }
-
-  getAll() {
-    return this.service.findAll();
-  }
-
-  getById(id: number) {
-    return this.service.findById(id);
+    super(new MenuService());
   }
 }

@@ -1,17 +1,8 @@
+import { BaseController } from "./base.controller.ts";
 import { FundService } from "../services/fund.service.ts";
 
-export class FundController {
-  service: any;
-
+export class FundController extends BaseController {
   constructor() {
-    this.service = new FundService();
-  }
-
-  getAll() {
-    return this.service.findAll();
-  }
-
-  getById(id: number) {
-    return this.service.findById(id);
+    super(new FundService());
   }
 }

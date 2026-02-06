@@ -1,17 +1,8 @@
+import { BaseController } from "./base.controller.ts";
 import { FaqService } from "../services/faq.service.ts";
 
-export class FaqController {
-  service: any;
-
+export class FaqController extends BaseController {
   constructor() {
-    this.service = new FaqService();
-  }
-
-  getAll() {
-    return this.service.findAll();
-  }
-
-  getById(id: number) {
-    return this.service.findById(id);
+    super(new FaqService());
   }
 }

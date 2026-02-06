@@ -5,8 +5,6 @@ import {
   WantRelationsController,
 } from "../../controllers/want.controller.ts";
 
-const wantRelationsController = new WantRelationsController();
-
 export async function wantAction(bot: any) {
   bot.action(/wantButtonId:(.+)/, async (ctx: any) => {
     const id = Number(ctx.match[1]);
@@ -27,7 +25,7 @@ export async function wantAction(bot: any) {
 export async function wantRelationAction(bot: any) {
   bot.action(/wantRelationButtonId:(.+)/, async (ctx: any) => {
     const id = Number(ctx.match[1]);
-    const item = await wantRelationsController.getById(id);
+    const item = await new WantRelationsController().getById(id);
 
     const keyboard = await getListKeyboard([], {
       showBackButton: true,
