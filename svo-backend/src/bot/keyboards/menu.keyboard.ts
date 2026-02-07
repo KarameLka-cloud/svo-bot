@@ -1,12 +1,11 @@
 import { Keyboard } from "@maxhub/max-bot-api";
 import { getListKeyboard } from "../services/getListKeyboard.ts";
-import { MenuController } from "../../controllers/menu.controller.ts";
+import { ActionController } from "../../controllers/action.controller.ts";
 
 type KeyboardType = ReturnType<typeof Keyboard.inlineKeyboard>;
-const menuController = new MenuController();
 
 export async function menuKeyboard(): Promise<KeyboardType> {
-  const buttons = await menuController.getAll();
+  const buttons = await new ActionController().getMainButton();
 
   const keyboard = await getListKeyboard(buttons, {
     buttonAction: "menuButtonId",

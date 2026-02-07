@@ -1,8 +1,8 @@
-import { BaseController } from "./base.controller.ts";
-import { FaqService } from "../services/faq.service.ts";
+// import { BaseController } from "./base.controller.ts";
+// import { FaqService } from "../services/faq.service.ts";
 
-export class FaqController extends BaseController {
-  constructor() {
-    super(new FaqService());
-  }
-}
+// export class FaqController extends BaseController {
+//   constructor() {
+//     super(new FaqService());
+//   }
+// }

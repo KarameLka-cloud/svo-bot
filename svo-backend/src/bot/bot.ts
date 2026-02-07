@@ -4,12 +4,7 @@ import { registerCommands } from "./config/commands.ts";
 import { startedAction } from "./actions/started.action.ts";
 import { startAction } from "./actions/start.action.ts";
 import { menuAction } from "./actions/menu.action.ts";
-import { wantAction, wantRelationAction } from "./actions/want.action.ts";
-import { helpAction, helpRelationAction } from "./actions/help.action.ts";
-import { employmentAction } from "./actions/employment.action.ts";
-import { faqAction } from "./actions/faq.action.ts";
-import { fundAction } from "./actions/fund.action.ts";
-import { feedbackAction } from "./actions/feedback.action.ts";
+// import { submenuAction } from "./actions/submenu.action.ts";
 import { returnMainAction } from "./actions/returnMain.action.ts";
 
 // Инициализация токена и проверка на наличие в .env
@@ -27,14 +22,7 @@ registerCommands(bot);
 startedAction(bot);
 startAction(bot);
 menuAction(bot);
-wantAction(bot);
-wantRelationAction(bot);
-helpAction(bot);
-helpRelationAction(bot);
-employmentAction(bot);
-faqAction(bot);
-fundAction(bot);
-feedbackAction(bot);
+// submenuAction(bot);
 returnMainAction(bot);
 
 export default bot;

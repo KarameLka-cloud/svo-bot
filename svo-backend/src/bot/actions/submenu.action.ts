@@ -1,13 +1,13 @@
-import { ActionController } from "../../controllers/action.controller.ts";
 import { getListKeyboard } from "../services/getListKeyboard.ts";
+import { ActionController } from "../../controllers/action.controller.ts";
 
-export async function menuAction(bot: any) {
-  bot.action(/menuButtonId:(.+)/, async (ctx: any) => {
+export async function submenuAction(bot: any) {
+  bot.action(/submenuButtonId:(.+)/, async (ctx: any) => {
     const id = Number(ctx.match[1]);
     const item = await new ActionController().getById(id);
-    console.log(item);
-    const keyboard = await getListKeyboard(item?.actions, {
-      buttonAction: "submenuButtonId",
+    const buttons = await new ActionController().getByParentId(id);
+    const keyboard = await getListKeyboard(buttons, {
+      // showReturnButton: false,
     });
 
     await ctx.answerOnCallback({
