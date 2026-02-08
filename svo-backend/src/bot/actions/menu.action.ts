@@ -5,9 +5,12 @@ export async function menuAction(bot: any) {
   bot.action(/menuButtonId:(.+)/, async (ctx: any) => {
     const id = Number(ctx.match[1]);
     const item = await new ActionController().getById(id);
-    console.log(item);
-    const keyboard = await getListKeyboard(item?.actions, {
+    const buttons = await new ActionController().getByParentId(id);
+    const parentId = item?.parent_id ?? null;
+    const keyboard = await getListKeyboard(buttons, {
       buttonAction: "submenuButtonId",
+      showBackButton: parentId !== null,
+      backButtonAction: parentId !== null ? `menuButtonId:${parentId}` : "",
     });
 
     await ctx.answerOnCallback({

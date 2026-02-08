@@ -12,6 +12,9 @@ export class ActionService {
       where: {
         parent_id: null,
       },
+      orderBy: {
+        id: "asc",
+      },
     });
   }
 
@@ -20,9 +23,6 @@ export class ActionService {
       where: {
         id,
       },
-      include: {
-        actions: true,
-      },
     });
   }
 
@@ -30,6 +30,9 @@ export class ActionService {
     return this.client.findMany({
       where: {
         parent_id: id,
+      },
+      orderBy: {
+        id: "asc",
       },
     });
   }

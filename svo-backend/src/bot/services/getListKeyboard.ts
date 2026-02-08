@@ -29,7 +29,9 @@ export async function getListKeyboard(
 
   const buttons = array
     .map((item: any) => {
-      if (item.type === "action") {
+      if (item.url) {
+        return [Keyboard.button.link(item.name_button, item.url)];
+      } else if (item.message) {
         return [
           Keyboard.button.callback(
             item.name_button,
@@ -39,8 +41,6 @@ export async function getListKeyboard(
             },
           ),
         ];
-      } else if (item.type === "link") {
-        return [Keyboard.button.link(item.name_button, item.url)];
       }
       return null;
     })

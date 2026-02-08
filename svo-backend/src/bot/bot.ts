@@ -4,7 +4,6 @@ import { registerCommands } from "./config/commands.ts";
 import { startedAction } from "./actions/started.action.ts";
 import { startAction } from "./actions/start.action.ts";
 import { menuAction } from "./actions/menu.action.ts";
-// import { submenuAction } from "./actions/submenu.action.ts";
 import { returnMainAction } from "./actions/returnMain.action.ts";
 
 // Инициализация токена и проверка на наличие в .env
@@ -22,7 +21,6 @@ registerCommands(bot);
 startedAction(bot);
 startAction(bot);
 menuAction(bot);
-// submenuAction(bot);
 returnMainAction(bot);
 
 export default bot;

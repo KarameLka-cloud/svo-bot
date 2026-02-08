@@ -15,7 +15,6 @@ datasource db {
 
 model action {
   id          Int      @id @default(autoincrement())
-  type        String
   name_button String
   message     String?  @db.LongText
   url         String?  @db.LongText
@@ -26,13 +25,6 @@ model action {
 
 model screen {
   id      Int    @id @default(autoincrement())
-  code    String @unique
+  type    String @unique
   message String @db.LongText
-}
-
-model faq {
-  id          Int    @id @default(autoincrement())
-  name_button String
-  question    String @db.LongText
-  answer      String @db.LongText
 }
