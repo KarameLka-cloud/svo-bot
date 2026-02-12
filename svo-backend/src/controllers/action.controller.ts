@@ -1,7 +1,7 @@
 import { ActionService } from "../services/action.service.ts";
 
 export class ActionController {
-  service: any;
+  service: ActionService;
 
   constructor() {
     this.service = new ActionService();

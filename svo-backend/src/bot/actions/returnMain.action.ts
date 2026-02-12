@@ -8,7 +8,7 @@ export async function returnMainAction(bot: any) {
       message: {
         text: `🗃️ Выберите интересующий раздел:`,
         format: "html",
-        attachments: [menuButtons],
+        attachments: [menuButtons ?? []],
       },
     });
   });

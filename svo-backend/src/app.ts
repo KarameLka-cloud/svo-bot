@@ -14,8 +14,11 @@ class App {
   }
 
   routes() {
-    this.app.use("/", (_, res) => {
-      res.send("Hello, world!");
+    // this.app.use("/", (_, res) => {
+    //   res.send("Hello, world!");
+    // });
+    this.app.use("/ping", (_, res) => {
+      res.send("pong");
     });
   }
 }

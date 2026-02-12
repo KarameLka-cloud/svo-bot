@@ -13,18 +13,34 @@ datasource db {
   provider = "mysql"
 }
 
-model action {
-  id          Int      @id @default(autoincrement())
+model actions {
+  id          Int       @id @default(autoincrement())
   name_button String
-  message     String?  @db.LongText
-  url         String?  @db.LongText
+  message     String?   @db.LongText
+  url         String?   @db.LongText
   parent_id   Int?
-  parent      action?  @relation("ActionTree", fields: [parent_id], references: [id])
-  actions     action[] @relation("ActionTree")
+  parent      actions?  @relation("ActionTree", fields: [parent_id], references: [id])
+  actions     actions[] @relation("ActionTree")
 }
 
-model screen {
+model screens {
   id      Int    @id @default(autoincrement())
   type    String @unique
   message String @db.LongText
+}
+
+model visitors {
+  id      Int      @id @default(autoincrement())
+  user_id Int
+  name    String?  @db.LongText
+  time    DateTime @db.Time()
+  date    DateTime @db.Date()
+}
+
+model feedbacks {
+  id      Int      @id @default(autoincrement())
+  content String   @db.LongText
+  status  String
+  time    DateTime @db.Time()
+  date    DateTime @db.Date()
 }

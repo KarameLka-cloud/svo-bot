@@ -1,10 +1,11 @@
 import { prisma } from "../../prisma/lib/prisma.ts";
+import { PrismaClient } from "@prisma/client/extension";
 
 export class ActionService {
-  client: any;
+  client: PrismaClient["actions"];
 
   constructor() {
-    this.client = prisma.action;
+    this.client = prisma.actions;
   }
 
   findMainButton() {
